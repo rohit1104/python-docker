@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/tidal-skill-299109/python-docker', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/tidal-skill-299109/python-docker']
+images: ['gcr.io/tidal-skill-299109/python-docker']
