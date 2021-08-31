@@ -4,5 +4,4 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/tidal-skill-299109/python-docker']
 images: ['gcr.io/tidal-skill-299109/python-docker']
-options:
-  logging: LEGACY
+logsBucket: 'gs://muntej-test-build-logs-1'
