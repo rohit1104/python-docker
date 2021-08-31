@@ -5,4 +5,4 @@ steps:
   args: ['push', 'gcr.io/tidal-skill-299109/python-docker']
 images: ['gcr.io/tidal-skill-299109/python-docker']
 options:
-  logging: CLOUD_LOGGING_ONLY
+  logging: LEGACY
