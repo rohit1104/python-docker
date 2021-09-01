@@ -1,7 +1,14 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/tidal-skill-299109/python-docker', '.']
+  args: ['build', '-t', 'gcr.io/tidal-skill-299109/python-docker:$SHORT_SHA', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/tidal-skill-299109/python-docker']
-images: ['gcr.io/tidal-skill-299109/python-docker']
+  args: ['push', 'gcr.io/tidal-skill-299109/python-docker:$SHORT_SHA']
+- name: 'gcr.io/cloud-builders/gke-deploy'
+  args:
+  - run
+  - --filename=depl.yaml
+  - --image=gcr.io/tidal-skill-299109/python-docker:$SHORT_SHA
+  - --location=europe-west3-a
+  - --cluster=sit-cluster-6
+images: ['gcr.io/tidal-skill-299109/python-docker:$SHORT_SHA']
 logsBucket: 'gs://muntej-test-build-logs-1'
