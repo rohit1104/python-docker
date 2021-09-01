@@ -1,0 +1,8 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: python-docker-ingress-1
+spec:
+  backend:
+    serviceName: python-docker-serv
+    servicePort: 80
