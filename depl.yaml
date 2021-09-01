@@ -1,0 +1,20 @@
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "python-docker"
+  namespace: "default"
+  labels:
+    app: "python-docker"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "python-docker"
+  template:
+    metadata:
+      labels:
+        app: "python-docker"
+    spec:
+      containers:
+      - name: "python-docker-sha256-1"
+        image: "gcr.io/tidal-skill-299109/python-docker@sha256:e1572e743b1bb8463f84281d41c16e1bfab240c83ccd5d01f1cc973640a50330"
