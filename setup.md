@@ -53,3 +53,7 @@ explain here the container registry you created and the URL for it
 ## ingress
 
 - explain need for ingress and our ingress file
+
+### extra
+
+1. create firestore secret: `kubectl create secret generic firestore-keys --from-file=firestorecredential.json=./adminsa.json`
