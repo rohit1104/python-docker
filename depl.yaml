@@ -15,6 +15,17 @@ spec:
       labels:
         app: "python-docker"
     spec:
+      volumes:
+      - name: firestore-key
+        secret:
+          secretName: firestore-keys
       containers:
       - name: "python-docker-sha256-1"
         image: "gcr.io/tidal-skill-299109/python-docker@sha256:e1572e743b1bb8463f84281d41c16e1bfab240c83ccd5d01f1cc973640a50330"
+        volumeMounts:
+        - name: firestore-key
+          mountPath: /var/secrets
+        env:
+        - name: GOOGLE_APPLICATION_CREDENTIALS
+          value: /var/secrets/firestorecredential.json
+
