@@ -28,4 +28,14 @@ spec:
         env:
         - name: GOOGLE_APPLICATION_CREDENTIALS
           value: /var/secrets/firestorecredential.json
-
+        - name: MONGO_USER
+          value: "user"
+        - name: MONGO_HOST
+          value: "host"
+        - name: MONGO_DB
+          value: "db"
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: test-secrets
+              key: mongopassword
